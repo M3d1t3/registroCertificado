@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['certificado'])) {
     }
 
     // Tomar algún dato del certificado, por ejemplo, el email
-    $email_from_cert = isset($cert_data['subject']['emailAddress']) ? $cert_data['subject']['emailAddress'] : null;
+    $email_de_cert = isset($cert_data['subject']['email']) ? $cert_data['subject']['email'] : null;
     if (!$email_from_cert) {
         die("El certificado no tiene una dirección de correo electrónico válida.");
     }
@@ -21,9 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['certificado'])) {
     // Aquí insertarías en la base de datos los datos recogidos del certificado
     // Por ejemplo:
     // $conexion = new mysqli('host', 'usuario', 'contraseña', 'base_de_datos');
-    // $query = "INSERT INTO usuarios(email) VALUES ('{$email_from_cert}')";
+    // $query = "INSERT INTO usuarios(email) VALUES ('{$email_de_cert}')";
     // $conexion->query($query);
 
-    echo "Usuario registrado con éxito usando el email: {$email_from_cert}";
+    echo "Usuario registrado con éxito usando el email: {$email_de_cert}";
 }
 ?>
