@@ -7,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['certificado'])) {
 
     // Extraer los datos del certificado. Tendria que saber que tipo de certificado se usaria para poder 
     //cambiar el sistema de validacion y extraccion del formulario segun la extension.
+    //Con la libreria OpenSSL de php podriamos desencriptar, encriptar y crear certificados digitales
     //En este ejemplo doy por hecho que se refiere a un certificado digital de la empresa.
     $cert_data = openssl_x509_parse(file_get_contents($certificado_tmp));
     if (!$cert_data) {
